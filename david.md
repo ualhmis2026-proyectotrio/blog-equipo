@@ -10,5 +10,5 @@ title: "Perfil de David Ureña Arroniz"
 En este proyecto de la asignatura me estoy encargando principalmente de configurar el repositorio, revisar los pull requests, el diseño de la página etc,
 
 ## Contacto y Redes
-- **GitHub:** [Enlace a tu perfil de GitHub, ej: https://github.com/BaaLial12]
-- **Correo universitario:** [Tu correo dua836@inlumine.ual.es]
+- **GitHub:**  https://github.com/BaaLial12
+- **Correo universitario:** Tu correo dua836@inlumine.ual.es
