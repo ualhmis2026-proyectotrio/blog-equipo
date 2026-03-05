@@ -1,0 +1,18 @@
+---
+layout: default
+title: Inicio
+---
+
+<div>
+  <h1>Bienvenidos al Blog de nuestro Equipo</h1>
+  <p>Este es nuestro proyecto para la asignatura, construido con Jekyll y alojado en GitHub Pages.</p>
+  
+  <h2>Últimas entradas:</h2>
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%d/%m/%Y" }}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
