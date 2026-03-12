@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - hmis-dua836
+name: Build and deploy Jekyll app to Azure Web App - hmis-dua836
 
 on:
   push:
@@ -18,22 +18,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
+      - name: Configurar entorno Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          node-version: '24.x'
+          ruby-version: '3.2'
 
-      - name: npm install, build, and test
+      - name: Construir el blog con Jekyll
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+          gem install bundler jekyll
+          bundle install || echo "No hay Gemfile, seguimos adelante"
+          jekyll build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
-          path: .
+          name: jekyll-app
+          path: _site/
 
   deploy:
     runs-on: ubuntu-latest
@@ -46,7 +46,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: node-app
+          name: jekyll-app
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -62,4 +62,3 @@ jobs:
           app-name: 'hmis-dua836'
           slot-name: 'Production'
           package: .
-          
