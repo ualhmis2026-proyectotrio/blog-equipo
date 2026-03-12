@@ -5,14 +5,13 @@ date: 2026-03-12
 author: David Ureña Arróniz
 ---
 
-# Creación de una página de contacto en el blog
+Para que los lectores puedan comunicarse con nosotros, es fundamental implementar un formulario de contacto en el blog. En este pequeño tutorial veremos cómo estructurarlo utilizando **HTML** y **CSS** puro.
 
-Para que los lectores puedan comunicarse con nosotros, es fundamental implementar un formulario de contacto en el blog. En este pequeño tutorial veremos cómo estructurarlo utilizando HTML y CSS puro.
-
-## Estructura básica en HTML
+## 🛠️ Estructura básica en HTML
 
 El primer paso es crear el esqueleto de nuestro formulario utilizando etiquetas HTML. Necesitaremos campos básicos para el nombre, el correo electrónico y el mensaje del usuario.
 
+```html
 <form action="#" method="POST">
   <label for="nombre">Nombre:</label>
   <input type="text" id="nombre" name="nombre" required>
@@ -25,11 +24,13 @@ El primer paso es crear el esqueleto de nuestro formulario utilizando etiquetas 
 
   <button type="submit">Enviar</button>
 </form>
+```
 
-## Estilos básicos con CSS
+## 🎨 Estilos básicos con CSS
 
 Para que nuestro formulario sea atractivo y no parezca sacado de los años 90, debemos aplicar algo de CSS. Podemos darle márgenes, espaciados y un diseño más limpio en nuestro archivo de estilos:
 
+```css
 form {
   display: flex;
   flex-direction: column;
@@ -50,10 +51,11 @@ button {
   border: none;
   cursor: pointer;
 }
+```
 
-## Integración en nuestro proyecto Jekyll
+## 🚀 Integración en nuestro proyecto Jekyll
 
-Al trabajar con Jekyll, podemos guardar el código HTML directamente dentro de un archivo Markdown (por ejemplo, en contacto.md). Jekyll se encargará de procesarlo y aplicarle el diseño base (`layout: default`) del resto de la página web.
+Al trabajar con Jekyll, podemos guardar el código HTML directamente dentro de un archivo Markdown (por ejemplo, en `contacto.md`). Jekyll se encargará de procesarlo y aplicarle el diseño base (`layout: default`) del resto de la página web.
 
 ## Conclusión
 
