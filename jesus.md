@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Perfil de Jesús Montoya Ripoll
+title: Jesus
 ---
 
 # Jesús Montoya Ripoll

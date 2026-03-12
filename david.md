@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Perfil de David Ureña Arroniz"
+title: David
 ---
 
 # ¡Hola! Soy David Ureña 👋
