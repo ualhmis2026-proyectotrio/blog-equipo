@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Perfil de Carmen María Peña Sevilla
+title: Carmen
 ---
 
 # Carmen María Peña Sevilla
