@@ -20,8 +20,7 @@ title: Inicio
   <ul>
     {% for post in site.posts %}
       <li>
-        <h3><a href="{{ post.url | relative_url}}">{{ post.title }}</a></h3>
-        <p><em>{{ post.date | date: "%d/%m/%Y" }}</em></p>
+        <h3><a href="{{ post.url | relative_url}}">{{ post.title }}  ({{ post.date | date: "%d/%m/%Y" }})</a></h3>
         <p>{{ post.excerpt }}</p> 
       </li>
     {% endfor %}
