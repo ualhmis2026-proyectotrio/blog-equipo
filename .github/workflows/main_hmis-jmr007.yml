@@ -18,22 +18,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
+      # 1. Instalamos Ruby (en lugar de Node)
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          node-version: '24.x'
+          ruby-version: '3.2'
+          bundler-cache: true # Instala las gems del Gemfile automáticamente
 
-      - name: npm install, build, and test
+      # 2. Construimos el sitio usando los DOS archivos de configuración
+      - name: Build with Jekyll
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+          bundle exec jekyll build --config _config.yml,_config_azure.yml
+        env:
+          JEKYLL_ENV: production
 
+      # 3. Subimos solo la carpeta _site (que es la web ya cocinada)
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
-          path: .
+          name: python-app  # Mantenemos el nombre que espera el paso de deploy o cámbialo a 'webapp'
+          path: ./_site
 
   deploy:
     runs-on: ubuntu-latest
