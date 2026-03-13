@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - hmis-jmr007
+name: Build and deploy Jekyll app to Azure Web App - hmis-jmr007
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 1. Instalamos Ruby (en lugar de Node)
+      # 1. Instalamos Ruby 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -32,11 +32,11 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      # 3. Subimos solo la carpeta _site (que es la web ya cocinada)
+      # 3. Subimos la carpeta _site generada
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: python-app  # Mantenemos el nombre que espera el paso de deploy o cámbialo a 'webapp'
+          name: jekyll-site  # Nombre unificado
           path: ./_site
 
   deploy:
@@ -50,7 +50,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: node-app
+          name: jekyll-site  # ¡Ahora descargamos el mismo que subimos!
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -66,4 +66,3 @@ jobs:
           app-name: 'hmis-jmr007'
           slot-name: 'Production'
           package: .
-          
